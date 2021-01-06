@@ -1,0 +1,637 @@
+using System;
+
+namespace StudentManagementApp
+{
+    public struct Student
+    {
+        public string ID;//Define student ID
+        public string Name;//define name
+        public string Surname;//define surname
+        public int Age;//age
+        public string Gender;//Gender
+        public string Address;//address
+        public string PostCode;//address
+        public string City;//address
+        public string Country;//address                
+        public string Phone;//Phone number
+        public string Email;//email address
+        public string Course;//Course 
+    }
+    class Program
+    {
+        static Student[] stud = new Student[20];
+        static int count;
+        //Initialize the array
+        public static void moren()//default student's information
+        {
+            stud[0].ID = "IT01";
+            stud[0].Name = "Ifelouwa";
+            stud[0].Surname = "Wayn";
+            stud[0].Age = 19;
+            stud[0].Gender = "Female";
+            stud[0].Address = "110 Combe Road";
+            stud[0].PostCode = "EC1 2RD";
+            stud[0].City = "London";
+            stud[0].Country = "UK";
+            stud[0].Phone = "07634216667";
+            stud[0].Email = "ife.W@aol.co.uk";
+            stud[0].Course = "IT";
+
+
+            stud[1].ID = "B01";
+            stud[1].Name = "Brown";
+            stud[1].Surname = "Lee";
+            stud[1].Age = 30;
+            stud[1].Gender = "Female";
+            stud[1].Address = "33 Manor Road";
+            stud[1].PostCode = "LE12 6DU";
+            stud[1].City = "Leeds";
+            stud[1].Country = "UK";
+            stud[1].Phone = "0204533567";
+            stud[1].Email = "leebrown@yahoo.co.uk";
+            stud[1].Course = "Business";
+
+
+            stud[2].ID = "H01";
+            stud[2].Name = "Christopher";
+            stud[2].Surname = "Jane";
+            stud[2].Age = 25;
+            stud[2].Gender = "Female";
+            stud[2].Address = "55 Maple Road";
+            stud[2].PostCode = "SE5 2CU";
+            stud[2].City = "Mancester";
+            stud[2].Country = "UK";
+            stud[2].Phone = "08008234576";
+            stud[2].Email = "marry_c@hotmail.co.uk";
+            stud[2].Course = "Health";
+
+
+            stud[3].ID = "T01";
+            stud[3].Name = "Michael";
+            stud[3].Surname = "More";
+            stud[3].Age = 29;
+            stud[3].Gender = "Male";
+            stud[3].Address = "28 Cross Lane";
+            stud[3].PostCode = "ON5 6RU";
+            stud[3].City = "Oxford";
+            stud[3].Country = "UK";
+            stud[3].Phone = "07578234656";
+            stud[3].Email = "m.m@mail.co.uk";
+            stud[3].Course = "Travel";
+
+
+            stud[4].ID = "M001";
+            stud[4].Name = "Dennisa";
+            stud[4].Surname = "Grey";
+            stud[4].Age = 27;
+            stud[4].Gender = "Female";
+            stud[4].Address = "30 Corner Lane";
+            stud[4].PostCode = "LB5 3KU";
+            stud[4].City = "Birmingham";
+            stud[4].Country = "UK";
+            stud[4].Phone = "07243567843";
+            stud[4].Email = "grey_d@virgin.co.uk";
+            stud[4].Course = "Management";
+
+
+
+            count = 5;
+        }
+        public static void Man()//Main menu
+        {
+            Console.WriteLine("****************************************");
+            Console.WriteLine("* Welcome To Student Management System *");
+            Console.WriteLine("            ~ MAIN MENU ~            \n");
+
+            Console.WriteLine("1. Search Student Details");
+            Console.WriteLine("2. Add Student Details");
+            Console.WriteLine("3. Modify Student Details");
+            Console.WriteLine("4. Delete Student Details");
+            Console.WriteLine("5. Exit");
+            Console.WriteLine("");
+        }
+        public static void AddStudent()
+        {
+            string flag;
+            do
+            {
+                Console.WriteLine(" ******************************* ");
+                Console.WriteLine("  * Student Management System *  ");
+                Console.WriteLine("   ~ Add New Student Details ~   \n");
+
+                Console.WriteLine("Please Enter Student ID:");
+                stud[count].ID = Console.ReadLine();
+
+                Console.WriteLine("Please Enter Student Name:");
+                stud[count].Name = Console.ReadLine();
+
+                Console.WriteLine("Please Enter Student Surname:");
+                stud[count].Surname = Console.ReadLine();
+
+                Console.WriteLine("Please Enter Student Age:");
+                stud[count].Age = int.Parse(Console.ReadLine());
+
+                Console.WriteLine("Please Enter Student Gender:");
+                stud[count].Gender = Console.ReadLine();
+
+                Console.WriteLine("Please enter Student Address_Line_1:");
+                stud[count].Address = Console.ReadLine();
+
+                Console.WriteLine("Please enter Student PostCode:");
+                stud[count].PostCode = Console.ReadLine();
+
+                Console.WriteLine("Please enter Student City:");
+                stud[count].City = Console.ReadLine();
+
+                Console.WriteLine("Please enter Student Country:");
+                stud[count].Country = Console.ReadLine();
+
+                Console.WriteLine("Please enter Student Phone Number:");
+                stud[count].Phone = Console.ReadLine();
+
+                Console.WriteLine("Please enter Student Email Address:");
+                stud[count].Email = Console.ReadLine();
+
+                Console.WriteLine("Please enter Student Enroled Course:");
+                stud[count].Course = Console.ReadLine();
+
+
+
+                count++;
+                Console.WriteLine("Student Added successfully! Do you want to continue adding (Yes/Y or Not/N)?");
+                flag = Console.ReadLine();
+            } while (flag == "Y" || flag == "y");
+        } //Entry information function
+        public static void FindStudent()
+        {
+            string choose;
+            do
+            {
+                Console.WriteLine("*********************************");
+                Console.WriteLine("  * Student Management System *  ");
+                Console.WriteLine("        ~ SEARCH MENU ~           \n");
+
+
+                Console.WriteLine("        *    Please Note    *               ");
+                Console.WriteLine("*  Use Key Sensitive To Fill The Fields  *\n");
+                
+                Console.WriteLine("1. Search All");
+                Console.WriteLine("2. Search by Student ID");
+                Console.WriteLine("3. Search by Course");
+                Console.WriteLine("4. Search by Surname");
+                Console.WriteLine("5. Search by Phone Number");
+                Console.WriteLine("6. Search by Age");
+                Console.WriteLine("0. Return to the Previous Menu\n");
+                Console.WriteLine("Please select:");
+                Console.WriteLine("");
+                choose = Console.ReadLine();
+                switch (choose)
+                {
+                    case "1":
+                        FindAll();//Search all                   
+                        break;                        
+                    case "2":
+                        FindID();//Search by student ID
+                        break;
+                    case "3":
+                        FindCourse();//Search by Course
+                        break;
+                    case "4":
+                        FindSurname();//Search by Surname
+                        break;
+                    case "5":
+                        FindPhone();//Search by Phone number
+                        break;
+                    case "6":
+                        FindAge();//Search by Age
+                        break;
+                    case "0\n":
+                        Console.WriteLine("Welcome To SMS, Do You Wish To Inquire Again ?");
+                        break;
+                }
+            } while (choose != "0");//If it is equal to 0, it will loop, if it is not equal, it will end
+        } //Query interface
+          //All query interface
+
+        //Search all
+        public static void FindAll()
+        {
+            Console.WriteLine("\n Student ID:\t Name:\t Surname:\t Gender:\t Age:\t Address:\t PostCode:\t City:\t Country:\t Phone:\t Email:\t Course:\t");
+            Console.WriteLine("-----------------------------------------------------------------------------------------------------------------------------------------------------------------------\n");
+            for (int i = 0; i < count; i++)
+            {
+                Console.Write("\t" + stud[i].ID + "\t");
+                Console.Write(stud[i].Name + "\t" + "\t");
+                Console.Write(stud[i].Surname + "\t");
+                Console.Write("\t" + stud[i].Gender + "\t");
+                Console.Write(stud[i].Age + "\t");
+                Console.Write(stud[i].Address + "\t");
+                Console.Write(stud[i].PostCode + "\t"); 
+                Console.Write(stud[i].City + "\t");
+                Console.Write(stud[i].Country + "\t");
+                Console.Write(stud[i].Phone + "\t");
+                Console.Write(stud[i].Email + "\t");
+                Console.Write(stud[i].Course + "\t");
+                Console.WriteLine("");
+            }
+        }//Search all
+
+        //Search by ID
+        public static void FindID()
+        {
+            string findid, chooes;
+            do
+            {
+                Console.WriteLine("Please enter the Student ID:\n");
+                findid = Console.ReadLine();
+                Console.WriteLine("\n Student ID:\t Name:\t Surname:\t Gender:\t Age:\t Address:\t PostCode:\t City:\t Country:\t Phone:\t Email:\t Course:\t");
+                Console.WriteLine("-----------------------------------------------------------------------------------------------------------------------------------------------------------------------\n");
+                for (int i = 0; i < count; i++)
+                {
+                    if (findid == stud[i].ID)
+                    {
+                        Console.Write(stud[i].ID + "\t");
+                        Console.Write(stud[i].Name + "\t");
+                        Console.Write(stud[i].Surname + "\t");
+                        Console.Write(stud[i].Gender + "\t");
+                        Console.Write(stud[i].Age + "\t");
+                        Console.Write(stud[i].Address + "\t");
+                        Console.Write(stud[i].PostCode + "\t");
+                        Console.Write(stud[i].City + "\t");
+                        Console.Write(stud[i].Country + "\t");
+                        Console.Write(stud[i].Phone + "\t");
+                        Console.Write(stud[i].Email + "\t");
+                        Console.Write(stud[i].Course + "\t");
+                        Console.WriteLine("");
+                    }
+                    else
+                    {
+                        continue;
+                    }
+                }
+                Console.WriteLine("Do You Wish To Search Students by Student ID? (Yes/Y or Not/N)");
+                chooes = Console.ReadLine();
+            } while (chooes == "Y" || chooes == "y");
+
+        }//Search by ID
+
+        //Search by Course
+        public static void FindCourse()
+        {
+            string course, chooes;
+            do
+            {
+                Console.WriteLine("Please enter the Course:\n");
+                course = Console.ReadLine();
+                Console.WriteLine("\n Student ID:\t Name:\t Surname:\t Gender:\t Age:\t Address:\t PostCode:\t City:\t Country:\t Phone:\t Email:\t Course:\t");
+                Console.WriteLine("-----------------------------------------------------------------------------------------------------------------------------------------------------------------------\n");
+                for (int i = 0; i < count; i++)
+                {
+                    if (course == stud[i].Course)
+                    {
+                        Console.Write(stud[i].ID + "\t");
+                        Console.Write(stud[i].Name + "\t");
+                        Console.Write(stud[i].Surname + "\t");
+                        Console.Write(stud[i].Gender + "\t");
+                        Console.Write(stud[i].Age + "\t");
+                        Console.Write(stud[i].Address + "\t");
+                        Console.Write(stud[i].PostCode + "\t");
+                        Console.Write(stud[i].City + "\t");
+                        Console.Write(stud[i].Country + "\t");
+                        Console.Write(stud[i].Phone + "\t");
+                        Console.Write(stud[i].Email + "\t");
+                        Console.Write(stud[i].Course + "\t");
+                        Console.WriteLine("");
+                    }
+                    else
+                    {
+                        continue;
+                    }
+                }
+                Console.WriteLine("Do You Wish To Search Students by Course? (Yes/Y or Not/N)");
+                chooes = Console.ReadLine();
+            } while (chooes == "Y" || chooes == "y");
+
+        }//Search by Course
+         //Search by Surname
+        public static void FindSurname()
+        {
+            string Surname, chooes;
+            do
+            {
+                Console.WriteLine("Please Enter Student Surname:\n");
+                Surname = Console.ReadLine();
+                Console.WriteLine("\n Student ID:\t Name:\t Surname:\t Gender:\t Age:\t Address:\t PostCode:\t City:\t Country:\t Phone:\t Email:\t Course:\t");
+                Console.WriteLine("-----------------------------------------------------------------------------------------------------------------------------------------------------------------------\n");
+                for (int i = 0; i < count; i++)
+                {
+                    if (Surname == stud[i].Surname)
+                    {
+                        Console.Write(stud[i].ID + "\t");
+                        Console.Write(stud[i].Name + "\t");
+                        Console.Write(stud[i].Surname + "\t");
+                        Console.Write(stud[i].Gender + "\t");
+                        Console.Write(stud[i].Age + "\t");
+                        Console.Write(stud[i].Address + "\t");
+                        Console.Write(stud[i].PostCode + "\t");
+                        Console.Write(stud[i].City + "\t");
+                        Console.Write(stud[i].Country + "\t");
+                        Console.Write(stud[i].Phone + "\t");
+                        Console.Write(stud[i].Email + "\t");
+                        Console.Write(stud[i].Course + "\t");
+                        Console.WriteLine("");
+                    }
+                    else
+                    {
+                        continue;
+                    }
+                }
+                Console.WriteLine("Do You Wish To Search Students by Surname? (Yes/Y or Not/N)");
+                chooes = Console.ReadLine();
+            } while (chooes == "Y" || chooes == "y");
+
+        }//Search by Surname
+
+        //Search by Phone Number
+        public static void FindPhone()
+        {
+            string Phone, chooes;
+            do
+            {
+                Console.WriteLine("Please Enter Student Phone Number:\n");
+                Phone = Console.ReadLine();
+                Console.WriteLine("\n Student ID:\t Name:\t Surname:\t Gender:\t Age:\t Address:\t PostCode:\t City:\t Country:\t Phone:\t Email:\t Course:\t");
+                Console.WriteLine("-----------------------------------------------------------------------------------------------------------------------------------------------------------------------\n");
+                for (int i = 0; i < count; i++)
+                {
+                    if (Phone == stud[i].Phone)
+                    {
+                        Console.Write(stud[i].ID + "\t");
+                        Console.Write(stud[i].Name + "\t");
+                        Console.Write(stud[i].Surname + "\t");
+                        Console.Write(stud[i].Gender + "\t");
+                        Console.Write(stud[i].Age + "\t");
+                        Console.Write(stud[i].Address + "\t");
+                        Console.Write(stud[i].PostCode + "\t");
+                        Console.Write(stud[i].City + "\t");
+                        Console.Write(stud[i].Country + "\t");
+                        Console.Write(stud[i].Phone + "\t");
+                        Console.Write(stud[i].Email + "\t");
+                        Console.Write(stud[i].Course + "\t");
+                        Console.WriteLine("");
+                    }
+                    else
+                    {
+                        continue;
+                    }
+                }
+                Console.WriteLine("Do You Wish To Search Students by Phone Number? (Yes/Y or Not/N)");
+                chooes = Console.ReadLine();
+            } while (chooes == "Y" || chooes == "y");
+
+        }//Search by Phone Number
+         //Query ranking by Age
+        static void Bubble()//colon sorting method
+        {
+            Student tmp = new Student();
+            for (int i = count; i > 0; i--)
+            {
+                for (int j = 0; j < j - 1; j++)
+                {
+                    if (stud[j].Age < stud[j + 1].Age)
+                    {
+                        tmp = stud[j];
+                        stud[j] = stud[j + 1];
+                        stud[j + 1] = tmp;
+                    }
+                }
+            }
+        }
+        public static void FindAge()
+        {
+            Bubble();
+            Console.WriteLine("\n Student ID:\t Name:\t Surname:\t Gender:\t Age:\t Address:\t PostCode:\t City:\t Country:\t Phone:\t Email:\t Course:\t");
+            Console.WriteLine("-----------------------------------------------------------------------------------------------------------------------------------------------------------------------\n");
+            for (int i = 0; i < count; i++)
+            {
+                Console.Write(stud[i].ID + "\t");
+                Console.Write(stud[i].Name + "\t");
+                Console.Write(stud[i].Surname + "\t");
+                Console.Write(stud[i].Gender + "\t");
+                Console.Write(stud[i].Age + "\t");
+                Console.Write(stud[i].Address + "\t");
+                Console.Write(stud[i].PostCode + "\t");
+                Console.Write(stud[i].City + "\t");
+                Console.Write(stud[i].Country + "\t");
+                Console.Write(stud[i].Phone + "\t");
+                Console.Write(stud[i].Email + "\t");
+                Console.Write(stud[i].Course + "\t");
+                Console.WriteLine("{0}\t", i + 1);
+            }
+        }//Result ranking query
+
+        public static void Delete() //Enter Student ID to delete information
+        {
+            Console.WriteLine("**********************************");
+            Console.WriteLine("*  Student  Management  System  * ");
+            Console.WriteLine("   ~ DELETE STUDENT RECORDS ~     \n");
+
+
+            Console.WriteLine("          *    Please Note    *                ");
+            Console.WriteLine("*  Please Use Lowercase Key For All Fields  *\n");
+
+            Console.WriteLine("Please Enter Student ID:\n");
+            string studno = Console.ReadLine();
+            int index = Info(studno);
+            if (index == -1)
+            {
+                Console.WriteLine("Field Empty Or Data Entered Invalid, Please Re-Imput an Existing and Correct Student ID!\n");
+            }
+            else if (index == count - 1)
+            {
+                count--;
+                Console.WriteLine("Student Record Deleted Successfully!\n");
+            }
+            else
+            {
+                for (int i = index; i < count; i++)
+                {
+                    stud[i] = stud[i + 1];
+                }
+                count--;
+                Console.WriteLine("Student Record Deleted Successfully!\n");
+            }
+        }
+
+        public static int Info(string studno)//The subscript of the Student ID searched
+        {
+            int index = -1;
+            for (int i = 0; i < count; i++)
+            {
+                if (studno == stud[i].ID)
+                {
+                    index = i;
+                    break;
+                }
+            }
+            return index;
+        }
+        //Student information to be modified
+        public static void studinfo(string coun)
+        {
+            Console.WriteLine("Student Information To Be Modified:\n");
+            for (int i = 0; i < count; i++)
+            {
+                if (coun == stud[i].ID)
+                {
+                    Console.WriteLine("Name:" + stud[i].Name);
+                    Console.WriteLine("Surname:" + stud[i].Surname);
+                    Console.WriteLine("Age:" + stud[i].Age);
+                    Console.WriteLine("Gender:" + stud[i].Gender);
+                    Console.WriteLine("Address" + stud[i].Address);
+                    Console.WriteLine("PostCode:" + stud[i].PostCode);
+                    Console.WriteLine("City:" + stud[i].City);
+                    Console.WriteLine("Country:" + stud[i].Country);
+                    Console.WriteLine("Phone Number:" + stud[i].Phone);
+                    Console.WriteLine("Email Address:" + stud[i].Email);
+                    Console.WriteLine("Course" + stud[i].Course);
+
+                }
+                else
+                {
+                    continue;
+                }
+            }
+        }
+        //Modify Student Information
+        public static void studInfo()
+        {
+            Console.WriteLine("**********************************");
+            Console.WriteLine("* Student  Management  System *   ");
+            Console.WriteLine("  ~ Change Student Details ~     \n");
+
+
+            Console.WriteLine("      *    Please Note    *         ");
+            Console.WriteLine("*  All Fields Are Key Sensitive  *\n");
+
+            Console.WriteLine("Please Enter Student ID!\n");
+            string coun = Console.ReadLine();
+            studinfo(coun);
+            Console.WriteLine("Please Select The Field To Be Modified:\n");
+            Console.WriteLine("1. Name");
+            Console.WriteLine("2. Surname");
+            Console.WriteLine("3. Age");
+            Console.WriteLine("4. Gender");
+            Console.WriteLine("5. Address");
+            Console.WriteLine("7. PostCode");
+            Console.WriteLine("8. City");
+            Console.WriteLine("9. Country");
+            Console.WriteLine("10. Phone Number");
+            Console.WriteLine("11. Email Address");
+            Console.WriteLine("12. Enrolled Course");
+            Console.WriteLine("Please select:\n");
+            string a = Console.ReadLine();
+            for (int i = 0; i < count; i++)
+            {
+                if (coun == stud[i].ID)
+                {
+                    if (a == "1")
+                    {
+                        Console.WriteLine("Please Enter The New Name: ");
+                        stud[i].Name = Console.ReadLine();
+                    }
+                    else if (a == "2")
+                    {
+                        Console.WriteLine("Please Enter The New Surname: ");
+                        stud[i].Surname = Console.ReadLine();
+                    }
+                    else if (a == "3")
+                    {
+                        Console.WriteLine("Please Enter The New Age: ");
+                        stud[i].Age = int.Parse(Console.ReadLine());
+                    }
+                    else if (a == "4")
+                    {
+                        Console.WriteLine("Please Enter The New Gender: ");
+                        stud[i].Gender = Console.ReadLine();
+                    }
+                    else if (a == "5")
+                    {
+                        Console.WriteLine("Please Enter The New Address: ");
+                        stud[i].Address = Console.ReadLine();
+                    }
+                    else if (a == "6")
+                    {
+                        Console.WriteLine("Please Enter The New PostCode: ");
+                        stud[i].PostCode = Console.ReadLine();
+                    }
+                    else if (a == "7")
+                    {
+                        Console.WriteLine("Please Enter The New City: ");
+                        stud[i].City = Console.ReadLine();
+                    }
+                    else if (a == "8")
+                    {
+                        Console.WriteLine("Please Enter The New Country: ");
+                        stud[i].Country = Console.ReadLine();
+                    }
+                    else if (a == "9")
+                    {
+                        Console.WriteLine("Please Enter The New Phone Number: ");
+                        stud[i].Phone = Console.ReadLine();
+                    }
+                    else if (a == "10")
+                    {
+                        Console.WriteLine("Please Enter The New Email Address: ");
+                        stud[i].Email = Console.ReadLine();
+                    }
+                    else if (a == "11")
+                    {
+                        Console.WriteLine("Please Enter The New Enrolled Course");
+                        stud[i].Course = Console.ReadLine();
+                    }
+                    Console.WriteLine("Modified successfully");
+                }
+                else
+                {
+                    continue;
+                }
+            }
+
+        }
+        static void Main(string[] args)
+        {
+            moren();
+            int chooes;
+            do
+            {
+                Man();
+                Console.WriteLine("Please Select The Desired Action!\n");
+                chooes = int.Parse(Console.ReadLine());
+                switch (chooes)
+                {
+                    case 1:
+                        FindStudent();
+                        break;
+                    case 2:
+                        AddStudent();
+                        break;
+                    case 3:
+                        studInfo();
+                        break;
+                    case 4:
+                        Delete();
+                        break;
+                    case 5:
+                        Console.WriteLine("Exited");
+                        break;
+                    default:
+                        Console.WriteLine("The Inserted Value Does Not Exist Or An Incorect Value Was Entered! Please Re-Imput a Valid Value!");
+                        break;
+
+                }
+            } while (chooes != 5);
+        }
+    }
+}
+
